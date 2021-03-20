@@ -5,7 +5,7 @@ ob_start();
 ?>
 
     <div class="container-fluid">
-        <div class="row main-section text-center align-items-center">
+        <div class="row first-section text-center align-items-center">
             <div class="col motto">
                 " Evolue et Domine "
             </div> 

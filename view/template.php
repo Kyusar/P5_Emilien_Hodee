@@ -16,37 +16,59 @@
     <body>
         
             <nav class="navbar navbar-expand-lg main-nav fixed-top justify-content-center align-items-center">
-                <a href="#" class="navbar-brand"> <!-- <img src="public/image/ainz.png" alt="Personnage ainz" class="logo"/> --> <strong> Nazarick </strong> </a>
+                <a href="index.php" class="navbar-brand main-shade-color-bright"> <!-- <img src="public/image/ainz.png" alt="Personnage ainz" class="logo"/> --> <strong> Nazarick </strong> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggle-icon">Menu</span>
+                    <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav m-auto"> 
                         <li class="nav-item">
-                            <a href="#" class="nav-link link-upgraded"> TEAM </a>
+                            <a href="index.php?action=team" class="nav-link link-upgraded"> TEAM </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link link-upgraded"> PROJETS </a>
+                            <a href="index.php?action=projet" class="nav-link link-upgraded"> PROJETS </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link  link-upgraded"> POSTULER </a>
+                            <a href="index.php?action=applyPage" class="nav-link  link-upgraded"> POSTULER </a>
                         </li>
-                        <li class="nav-item dropdown ">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle link-dropdown" href="#" id="navbarMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                                 JEUX 
                             </a>
-                            <div class="dropdown-menu dropdown-asset" aria-labelledby="navbarMenuLink"> 
-                                <a class="dropdown-item" href="#"> New World </a>
-                                <a class="dropdown-item" href="#"> League of Legends </a>
+                            <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarMenuLink"> 
+                                <a class="dropdown-item" href="index.php?action=newworld"> New World </a>
+                                <a class="dropdown-item disabled" href="#"> League of Legends </a>
                             </div>
                         </li>
+                        
                         <li class="nav-item">
-                            <a  href="#" class="nav-link link-upgraded"> CONTACT </a>
+                            <a  href="index.php?action=contact" class="nav-link link-upgraded"> CONTACT </a>
                         </li>
                     </ul>
-                    <div class="open-btn d-flex">
-                            <button type="button" class="btn open-button" onclick="openForm()"> Se connecter </button>   
-                    </div>
+                    <?php
+                            if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
+                            {
+                                ?>
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle link-dropdown" id="navbarProfilLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/image/korosensei.png" alt="" class="profil"/></a>
+                                        <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarProfilLink">
+                                            <a href="#" class="dropdwon-item">Mon profil</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item"> Deconnexion </a>
+                                        </div>
+                                    </div>
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                <div class="open-btn d-flex">
+                                    <button type="button" class="btn open-button" onclick="openForm()"> Se connecter </button>   
+                                </div>
+                                <?php
+                            }
+                                ?>
+
                 </div>
             </nav> 
 
@@ -80,13 +102,15 @@
                 </div>
                 <div class="col-6 align-self-start">
                     <h4 class="main-color"> <u>Reseaux sociaux</u> </h4>
-                    <p> <img src="../image/logo_twitter.png" alt="" /> Twitter </p>
+                    <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter"></i></a> </p>
+                    <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord"></i></a> </p>
                 </div>
             </div>
         </div>
          
-       
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script src="public/js/script.js"></script>
+        <script src="https://kit.fontawesome.com/5b3feff120.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

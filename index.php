@@ -8,9 +8,36 @@ require('controller/ProfilController.php'); */
 try{
     if(isset($_GET['action']))
     {
-        if(isset($_GET['action']) === "team")
+        if($_GET['action'] == 'team')
         {
             require('view/teamPage.php');
+        }
+        elseif($_GET['action'] == 'applyPage')
+        {
+            require('view/applyPage.php');
+        }
+        elseif($_GET['action'] == 'contact')
+        {
+            require('view/contactPage.php');
+        }
+         elseif($_GET['action'] == 'projet')
+        {
+            require('view/bioPage.php');
+        }
+        elseif($_GET['action'] == 'newworld')
+        {
+            require('view/NewWorld.php');
+        }/*
+        elseif($_GET['action'] == 'applyPage')
+        {
+            require('view/applyPage.php');
+        }
+        elseif($_GET['action'] == 'applyPage')
+        {
+            require('view/applyPage.php');
+        } */
+        else{
+            throw new Exception ('Cette page n\'existe  pas');
         }
     }
     else{

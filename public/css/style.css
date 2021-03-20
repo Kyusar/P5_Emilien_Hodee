@@ -7,24 +7,33 @@
 }
 
 :root {
-    --main-color : #833807;
-    --main-color-shade-bright: #d15909;
-    --main-bg-color: #000;
+    --main-color: #d15909;
+    --main-bg-color: #121212;
+    --main-font-family-optimus: 'OptimusPrinceps', Arial, sans-serif;
+    --main-font-family-roboto: 'Roboto', sans-serif;
 }
 
 .main-color
 {
     color: var(--main-color);
 }
-
+.main-bg-color
+{
+    background-color :  var(--main-bg-color);
+}
 .main-shade-color-bright
 {
-    color: var(--main-color-shade-bright);
+    color: var(--main-color);
+}
+.main-font
+{
+    font-family: var(--main-font-family-optimus);
+    font-size: 1.2em;
 }
 /* body + General rules */
 
 body {
-    font-family: 'OptimusPrinceps', Arial, sans-serif;
+    font-family: var(--main-font-family-optimus);
     background:  var(--main-bg-color);
     color: #fff;
 }
@@ -35,11 +44,20 @@ p, input
     line-height: 1.1rem;
 }
 
-/* footer section */
-.section-footer
+h3 
 {
-    margin-top: 100px;
+    font-size: 2em;
 }
+h4{
+    font-family: var(--main-font-family-roboto);
+}
+
+.simple-link, .simple-link:hover
+{
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
 /* Misc for div  */
 .my-container
 {
@@ -111,7 +129,6 @@ p, input
 .navbar-brand
 {
     margin-left: 1.5rem;
-    color: var(--main-color);
     font-size : 3em;
 }
 .nav-link
@@ -121,15 +138,14 @@ p, input
 
 .navbar-toggler
 {
-    margin-right: 3rem;
-    background-color: var(--main-color);
-    color: #fff;
+    border: 1px  solid var(--main-color);
+    color: var(--main-color);
 }
 .navbar-collapse
 {
     background-color: var(--main-bg-color);
 }
- 
+
 .dropdown-asset
 {
     background-color: var(--main-bg-color);
@@ -146,101 +162,19 @@ p, input
     background: #1b1b1b;
 }
 
-/*  Main section */ 
-
-/* Block page */
-
-.motto 
+.profil
 {
-    font-size: 10em;
-    color: var(--main-color-shade-bright);
-    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 50px;
+    padding:2px;
+    border: 1px solid var(--main-color);
 }
 
-.main-section
+.profil:hover
 {
-    position: relative;
-    margin-top: 80px;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-}
-
-.main-section::before
-{
-    content: '';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    opacity: 0.3;
-    background-image: url('../image/skeleton-fire.jpg');
-    background-size: cover;
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-    overflow: hidden;
-}
-
-.second-section
-{
-    position: relative;
-    margin-top: -15vh;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-}
-
-.second-section::before
-{
-    content:'';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.3;
-    background-image: url('../image/bg_boat.jpg');
-    background-size:cover;
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
-}
-
-.third-section
-{
-    position: relative;
-    margin-top: -15vh;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
-}
-
-.third-section::before
-{
-    content:'';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.3;
-    background-image: url('../image/skeleton-fire.jpg');
-    background-size:cover;
-    z-index: -1;
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 85%);
-}
-
-/* Texte card */
-.secondary-title
-{
-    font-size: 4em;
-}
-.front-card
-{
-    max-width: 600px;
-}
-
-.btn-color
-{
-    background-color: var(--main-color);
-    color: #fff;
+    border: 2px solid var(--main-color);
 }
 /* popup connexion */
 
@@ -314,6 +248,184 @@ p, input
     opacity: 1;
 }
 
+/* footer section */
+.section-footer
+{
+    border-top: 4px solid var(--main-color);
+    
+    padding: 20px;
+}
+.fa-twitter 
+{
+    color: #1A91DA; 
+    font-size:30px;
+}
+.fa-discord
+{
+    color: #6E85D3;
+    font-size:30px;
+}
+
+/* Block page */
+/* Landing Page */ 
+.motto 
+{
+    font-size: 10em;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.first-section
+{
+    position: relative;
+    margin-top: 80px;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.first-section::before
+{
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    opacity: 0.5;
+    background-image: url('../image/skeleton-fire.jpg');
+    background-size: cover;
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    overflow: hidden;
+}
+
+.second-section
+{
+    position: relative;
+    margin-top: -15vh;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.second-section::before
+{
+    content:'';
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+    background-image: url('../image/bg_boat.jpg');
+    background-size: cover;
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+}
+
+.third-section
+{
+    position: relative;
+    margin-top: -15vh;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.third-section::before
+{
+    content:'';
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+    background-image: url('../image/skeleton-warrior.jpg');
+    background-size: cover;
+    z-index: -1;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+/* TeamPage */
+
+.main-section
+{
+    padding-top: 20px;
+    margin-top: 100px;
+}
+.card{
+    width: 20rem;
+    height: 23rem;
+    border: 1px solid var(--main-color);
+}
+.card-img
+{
+    width:100%;
+    min-height: 10rem;
+    max-height: 15rem;
+    height: auto;
+    padding: 5px;
+    opacity: 0.8;
+}
+
+/* ApplyPage */
+.form-control
+{
+    font-family: var(--main-font-family-roboto);
+}
+
+.form-control:hover {
+    border: 2px solid var(--main-color);
+}
+
+.apply-submit {
+    width: 30%;
+    padding: 10px;
+}
+/* Texte card */
+.secondary-title
+{
+    font-size: 4em;
+}
+.front-card
+{
+    max-width: 600px;
+}
+
+.btn-color
+{
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius:  15px;
+}
+
+/* ProjectPage */
+
+.bio-section
+{
+    margin-top: 10px;
+}
+.text-bio 
+{
+    line-height: 1.2;
+}
+
+/* NW-page */
+#bg-nw
+{
+    background-image: url('../image/NewWorld.jpg');
+    background-size: 100% 100%;
+    height: 100vh;
+    max-width: 100vw;
+}
+
+.mask
+{
+    background-color: rgb(18,18,18, 0.95);
+}
+.twitter-timeline
+{
+    color: #fff;
+}
+
 /* Media Queries */ 
 @media (max-width: 1400px) {
     .motto{
@@ -347,4 +459,13 @@ p, input
     {
         opacity: 1;
     }
+    .card
+    {
+        margin: 0 auto;
+    }
+    .navbar-brand
+    {
+        font-size : 2em;
+    }
+
 }
