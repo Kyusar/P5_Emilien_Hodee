@@ -22,28 +22,60 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav m-auto"> 
-                        <li class="nav-item">
-                            <a href="index.php?action=team" class="nav-link link-upgraded"> TEAM </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?action=projet" class="nav-link link-upgraded"> PROJETS </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?action=applyPage" class="nav-link  link-upgraded"> POSTULER </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle link-dropdown" href="#" id="navbarMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                                JEUX 
-                            </a>
-                            <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarMenuLink"> 
-                                <a class="dropdown-item" href="index.php?action=newworld"> New World </a>
-                                <a class="dropdown-item disabled" href="#"> League of Legends </a>
-                            </div>
-                        </li>
                         
-                        <li class="nav-item">
-                            <a  href="index.php?action=contact" class="nav-link link-upgraded"> CONTACT </a>
-                        </li>
+                        
+                        <?php
+                            if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
+                            {
+                                ?>
+                                    <li class="nav-item">
+                                        <a href="index.php?action=hub" class="nav-link link-upgraded"> HUB</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="index.php?action=guideNW" class="nav-link  link-upgraded"> GUIDES </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="index.php?action=newworld" class="nav-link  link-upgraded"> NEW WORLD </a>
+                                    </li>
+                                <?php
+                                if($_SESSION['pseudo'] == 'Kyusar')
+                                {
+                                    ?>
+                                    <li class="nav-item">
+                                        <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
+                                    </li>
+                                <?php
+                                }
+                            }
+                            else
+                            {
+                                ?>
+                                <li class="nav-item">
+                                    <a href="index.php?action=team" class="nav-link link-upgraded"> TEAM </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index.php?action=projet" class="nav-link link-upgraded"> PROJETS </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="index.php?action=applyPage" class="nav-link  link-upgraded"> POSTULER </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle link-dropdown" href="#" id="navbarMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                                        JEUX 
+                                    </a>
+                                    <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarMenuLink"> 
+                                        <a class="dropdown-item" href="index.php?action=newworld"> New World </a>
+                                        <a class="dropdown-item disabled" href="#"> League of Legends </a>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a  href="index.php?action=contact" class="nav-link link-upgraded"> CONTACT </a>
+                                </li>
+                                <?php
+                            }
+                                ?>
+                        
                     </ul>
                     <?php
                             if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
@@ -52,12 +84,30 @@
                                     <div class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle link-dropdown" id="navbarProfilLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/image/korosensei.png" alt="" class="profil"/></a>
                                         <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarProfilLink">
-                                            <a href="#" class="dropdwon-item">Mon profil</a>
+                                            <a href="index.php?action=profil" class="dropdown-item">Mon profil</a>
                                             <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item"> Deconnexion </a>
+
+                                            <a href="index.php" class="dropdown-item">Acceuil</a>
+                                            <a href="index.php?action=team" class="dropdown-item">Team</a>
+                                            <a href="index.php?action=applyPage" class="dropdown-item">Postuler</a>
+                                            <a href="index.php?action=contact" class="dropdown-item">Contact</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="index.php?action=disconnect" class="dropdown-item"> Deconnexion </a>
+                                            <?php
+                                            if($_SESSION['pseudo'] == 'Kyusar')
+                                            {
+                                                ?>
+                                                <li class="nav-item">
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
+                                                </li>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 <?php
+                                
                             }
                             else
                             {
@@ -75,14 +125,15 @@
             <div class="login-popup">
                 <div class="form-popup" id="popupForm">
                 <!-- <a class="close">&times;</a> -->
-                    <form action="#" class="form-container text-white">
-                        <h2> Veuillez vous connecter </h2>
+                    <form method="post" action="index.php?action=connexion" class="form-container text-white">
+                        <h2> Connexion : </h2>
                         <label for="pseudo"> Pseudo : </label>
                         <input type="text" placeholder="Votre pseudo" name="pseudo" required>
                         <label for="password"> Mot de passe : </label>
                         <input type="password" id="password" placeholder="Votre mot de passe" name="password" required>
                         <button type="submit" class="btn btn-submit"> Se connecter </button>
                         <button type="button" class="btn btn-danger" onclick="closeForm()"> Fermer </button>
+                        <p> <a href="index.php?action=createAccount" class="simple-link">Créer un compte</a> </p>
                     </form>
                 </div>
             </div>
@@ -109,7 +160,7 @@
         </div>
          
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <script src="public/js/script.js"></script>
+        <script src="public/js/popupConnexion.js"></script>
         <script src="https://kit.fontawesome.com/5b3feff120.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
