@@ -6,8 +6,8 @@ ob_start();
 
     <div class="container-fluid main-section">
         <div class="row text-center align-items-center">
-            <div class="col motto">
-                " Evolue et Domine "
+            <div class="col">
+                <h1 class="main-color">  Work in progress </h1>
             </div> 
         </div>
     </div>

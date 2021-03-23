@@ -8,8 +8,8 @@ ob_start(); ?>
                     <h3 class="main-color"><strong> New World </strong></h3>
                 </div>
             </div>
-            <div class="row bio-section">
-                <div class="col-lg-8 col-sm-12 text-center">
+            <div class="row bio-section justify-content-between">
+                <div class="col-lg-7 col-sm-12 text-center container-glow">
 
                     <h4 class="main-color "><strong> Présentation </strong></h4>
                     <p class="text-bio text-left">New World est un jeu action, exploration, mmo, online réalisé par Amazon Game Studios et commercialisé par Amazon Game Studios. New World est en développement sur PC
@@ -34,9 +34,23 @@ ob_start(); ?>
                 <div class="col-lg-4 col-sm-10">
                     <a class="twitter-timeline" data-width="300" data-height="600" data-theme="dark" data-chrome="nofooter" href="https://twitter.com/PlaynewworldFR?ref_src=twsrc%5Etfw" style>Tweets by PlaynewworldFR</a>
                 </div>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <h3 class="main-color"><strong> News / Dev </strong></h3>
+                </div>
             </div>  
+            <div class="row text-center">
+                <div class="col container-glow">
+                    <h4 class="main-color "><strong> From Reddit </strong></h4>
+                    <p id="article"></p>
+                </div>
+            </div> 
         </div>
     </div>
 
+    <script src="public/js/ajax.js"></script>
+    <script src="public/js/newworldfan.js"></script>
+    
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

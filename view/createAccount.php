@@ -10,7 +10,7 @@ ob_start();
             <h3> Creer un compte </h3>
         </div>
     </div>
-    <form method="post" action="index.php?action=addNewUser">
+    <form method="post" action="index.php?action=addNewUser" class="container-glow ">
         <div class="form-group">
             <label for="pseudo">Pseudo</label>
             <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Votre pseudo">

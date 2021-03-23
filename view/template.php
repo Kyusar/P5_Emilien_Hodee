@@ -14,7 +14,7 @@
 		<title><?= $title ?></title>
 	</head>
     <body>
-        
+        <header>
             <nav class="navbar navbar-expand-lg main-nav fixed-top justify-content-center align-items-center">
                 <a href="index.php" class="navbar-brand main-shade-color-bright"> <!-- <img src="public/image/ainz.png" alt="Personnage ainz" class="logo"/> --> <strong> Nazarick </strong> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,7 @@
 
                 </div>
             </nav> 
-
+        </header>
             <div class="login-popup">
                 <div class="form-popup" id="popupForm">
                 <!-- <a class="close">&times;</a> -->
@@ -141,25 +141,29 @@
 
         <?= $content ?>
 
-        <div class="container-fluid section-footer">
-            <div class="row text-center align-items-center">
-                <div class="col-6">
-                    <h4 class="main-color"> <u>Second menu</u> </h4>
-                    <p> Team </p>
-                    <p> Projets </p>
-                    <p> Postuler </p>
-                    <p> Jeux </p>
-                    <p> Contact </p>
-                </div>
-                <div class="col-6 align-self-start">
-                    <h4 class="main-color"> <u>Reseaux sociaux</u> </h4>
-                    <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter"></i></a> </p>
-                    <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord"></i></a> </p>
+        <footer>                    
+            <div class="container-fluid section-footer">
+                <div class="row text-center align-items-center">
+                    <div class="col-6">
+                        <h4 class="main-color"> <u>Off-menu</u> </h4>
+                        <a href="index.php?action=team" class="nav-link"> Team </a>
+                        <a href="index.php?action=projet" class="nav-link"> Projets </a>
+                        <a href="index.php?action=applyPage" class="nav-link"> Postuler </a>
+                        <a href="index.php?action=newworld" class="nav-link"> New World </a>
+                        <a href="index.php?action=contact" class="nav-link"> Contact </a>
+                        
+                    </div>
+                    <div class="col-6 align-self-start">
+                        <h4 class="main-color"> <u>Reseaux sociaux</u> </h4>
+                        <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter"></i></a> </p>
+                        <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord"></i></a> </p>
+                    </div>
                 </div>
             </div>
-        </div>
-         
+        </footer>
+
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        
         <script src="public/js/popupConnexion.js"></script>
         <script src="https://kit.fontawesome.com/5b3feff120.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

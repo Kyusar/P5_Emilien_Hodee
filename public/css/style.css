@@ -1,470 +1,461 @@
-@font-face{
-    font-family: 'OptimusPrinceps';
-    src: url('../fonts/OptimusPrinceps.ttf') format('ttf'),
-            url('../fonts/OptimusPrincepsSemiBold.ttf') format('ttf');
-    font-size: normal;
-    font-weight : normal;
+@font-face {
+  font-family: "OptimusPrinceps";
+  src: url("../fonts/OptimusPrinceps.ttf") format("ttf"),
+    url("../fonts/OptimusPrincepsSemiBold.ttf") format("ttf");
+  font-size: normal;
+  font-weight: normal;
 }
 
 :root {
-    --main-color: #d15909;
-    --main-bg-color: #121212;
-    --main-font-family-optimus: 'OptimusPrinceps', Arial, sans-serif;
-    --main-font-family-roboto: 'Roboto', sans-serif;
+  --main-color: #d15909;
+  --main-bg-color: #121212;
+  --main-font-family-optimus: "OptimusPrinceps", Arial, sans-serif;
+  --main-font-family-roboto: "Roboto", sans-serif;
 }
 
-.main-color
-{
-    color: var(--main-color);
+.main-color {
+  color: var(--main-color);
 }
-.main-bg-color
-{
-    background-color :  var(--main-bg-color);
+.main-bg-color {
+  background-color: var(--main-bg-color);
 }
-.main-shade-color-bright
-{
-    color: var(--main-color);
+.main-shade-color-bright {
+  color: var(--main-color);
 }
-.main-font
-{
-    font-family: var(--main-font-family-optimus);
-    font-size: 1.2em;
+.main-font {
+  font-family: var(--main-font-family-optimus);
+  font-size: 1.2em;
+}
+
+.secondary-font {
+  font-family: var(--main-font-family-roboto);
 }
 /* body + General rules */
 
 body {
-    font-family: var(--main-font-family-optimus);
-    background:  var(--main-bg-color);
-    color: #fff;
+  font-family: var(--main-font-family-optimus);
+  background: var(--main-bg-color);
+  color: #fff;
 }
 
-p, input
-{
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.1rem;
+p,
+input {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.1rem;
 }
 
-h3 
-{
-    font-size: 2em;
+h3 {
+  font-size: 2em;
 }
-h4{
-    font-family: var(--main-font-family-roboto);
-}
-
-.simple-link, .simple-link:hover
-{
-    color: var(--main-color);
-    text-decoration: underline;
+h4 {
+  font-family: var(--main-font-family-roboto);
 }
 
+.container-glow {
+  box-shadow: 1px 1px 5px var(--main-color);
+  padding: 20px;
+}
+.simple-link,
+.simple-link:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.container .row {
+  padding: 15px 0px;
+}
+
+.hidden {
+  visibility: hidden;
+}
 /* Misc for div  */
-.my-container
-{
+.my-container {
   border: 2px solid yellow;
 }
 
-.my-row
-{
-    border: 2px solid blue;
+.my-row {
+  border: 2px solid blue;
 }
 
-.my-col
-{
-    border:  2px dashed red;
-} 
+.my-col {
+  border: 2px dashed red;
+}
 
 /* Navigation */
 
-.main-nav
-{
-    height: 100px;
-    font-size: 1em;
-    color: #fff;
-    background: var(--main-bg-color);
-    border-bottom: 4px solid var(--main-color);
+.main-nav {
+  height: 100px;
+  font-size: 1em;
+  color: #fff;
+  background: var(--main-bg-color);
+  border-bottom: 4px solid var(--main-color);
 }
 
-.link-upgraded
-{
-    color: #fff;
-    margin: 20px;
-    position: relative;
+.link-upgraded {
+  color: #fff;
+  margin: 20px;
+  position: relative;
 }
-.link-dropdown
-{
-    color: #fff;
-    margin: 20px;
-    position: relative;
+.link-dropdown {
+  color: #fff;
+  margin: 20px;
+  position: relative;
 }
-.link-dropdown:hover
-{
-    color: var(--main-color);
+.link-dropdown:hover {
+  color: var(--main-color);
 }
-.link-upgraded:hover
-{
-    color: var(--main-color);
+.link-upgraded:hover {
+  color: var(--main-color);
 }
 
-.link-upgraded::after{
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--main-color);
+.link-upgraded::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--main-color);
 
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 250ms ease-in;
-}
-
-.link-upgraded:hover::after
-{
-    transform: scaleX(1);
-    transform-origin: left;
-}
- 
-.navbar-brand
-{
-    margin-left: 1.5rem;
-    font-size : 3em;
-}
-.nav-link
-{
-    color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease-in;
 }
 
-.navbar-toggler
-{
-    border: 1px  solid var(--main-color);
-    color: var(--main-color);
-}
-.navbar-collapse
-{
-    background-color: var(--main-bg-color);
+.link-upgraded:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.dropdown-asset
-{
-    background-color: var(--main-bg-color);
+.navbar-brand {
+  margin-left: 1.5rem;
+  font-size: 3em;
+}
+.nav-link {
+  color: #fff;
 }
 
-.dropdown-asset a
-{
-    color: #fff;
+.navbar-toggler {
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+}
+.navbar-collapse {
+  background-color: var(--main-bg-color);
 }
 
-.dropdown-asset a:hover
-{
-    color: #fff;
-    background: #1b1b1b;
-}
-.profil
-{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    
-    padding:2px;
-    border: 1px solid var(--main-color);
+.dropdown-asset {
+  background-color: var(--main-bg-color);
 }
 
-.profil:hover
-{
-    border: 2px solid var(--main-color);
+.dropdown-asset a {
+  color: #fff;
+}
+
+.dropdown-asset a:hover {
+  color: #fff;
+  background: #1b1b1b;
+}
+.profil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  padding: 2px;
+  border: 1px solid var(--main-color);
+}
+
+.profil:hover {
+  border: 2px solid var(--main-color);
 }
 /* popup connexion */
 
-.open-button
-{
-    background : var(--main-color);
-    color: #fff;
-    box-shadow: inset 0 0 5px 5px rgb(0, 0, 0, 0.3);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.open-button {
+  background: var(--main-color);
+  color: #fff;
+  box-shadow: inset 0 0 5px 5px rgb(0, 0, 0, 0.3);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
- .login-popup
-{
-    position: relative;
-    width: 100%;
-    text-align: center;
-} 
-.close 
-{
-    background-color: #fff;
+.login-popup {
+  position: relative;
+  width: 100%;
+  text-align: center;
 }
-.form-popup
-{
-    position: fixed;
-    display: none;
-    right: 2%;
-    top: 120px;;
-    border: 2px solid var(--main-color);
-    z-index: 9;
+.close {
+  background-color: #fff;
+}
+.form-popup {
+  position: fixed;
+  display: none;
+  right: 2%;
+  top: 120px;
+  border: 2px solid var(--main-color);
+  z-index: 9;
 }
 /* Styles pour le conteneur du formulaire */
 .form-container {
-    max-width: 300px;
-    padding: 20px;
-    background-color: var(--main-bg-color);
+  max-width: 300px;
+  padding: 20px;
+  background-color: var(--main-bg-color);
 }
 /* Largeur complète pour les champs de saisie */
-.form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #eee;
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #eee;
 }
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-    font-weight: bold;
+.form-container input[type="text"]:focus,
+.form-container input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+  font-weight: bold;
 }
 /* Stylez le bouton de connexion */
 .form-container .btn {
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
 }
 
-.btn-submit
-{
-    background-color : var(--main-color);
+.btn-submit {
+  background-color: var(--main-color);
 }
 
 /* Planez les effets pour les boutons */
-.form-container .btn:hover, .open-button:hover {
-    opacity: 1;
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
 }
 
 /* footer section */
-.section-footer
-{
-    border-top: 4px solid var(--main-color);
-    
-    padding: 20px;
+.section-footer {
+  border-top: 4px solid var(--main-color);
+
+  padding: 20px;
 }
-.fa-twitter 
-{
-    color: #1A91DA; 
-    font-size:30px;
+.fa-twitter {
+  color: #1a91da;
+  font-size: 30px;
 }
-.fa-discord
-{
-    color: #6E85D3;
-    font-size:30px;
+.fa-discord {
+  color: #6e85d3;
+  font-size: 30px;
 }
 
 /* Block page */
-/* Landing Page */ 
-.motto 
-{
-    font-size: 10em;
-    color: var(--main-color);
-    margin-bottom: 20px;
+/* Landing Page */
+.motto {
+  font-size: 10em;
+  color: var(--main-color);
+  margin-bottom: 20px;
 }
 
-.first-section
-{
-    position: relative;
-    margin-top: 80px;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+.first-section {
+  position: relative;
+  margin-top: 80px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
-.first-section::before
-{
-    content: '';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100%;
-    opacity: 0.5;
-    background-image: url('../image/skeleton-fire.jpg');
-    background-size: cover;
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
-    overflow: hidden;
+.first-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  opacity: 0.5;
+  background-image: url("../image/skeleton-fire.jpg");
+  background-size: cover;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  overflow: hidden;
 }
 
-.second-section
-{
-    position: relative;
-    margin-top: -15vh;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+.second-section {
+  position: relative;
+  margin-top: -15vh;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
-.second-section::before
-{
-    content:'';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.5;
-    background-image: url('../image/bg_boat.jpg');
-    background-size: cover;
-    z-index: -1;
-    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+.second-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  background-image: url("../image/bg_boat.jpg");
+  background-size: cover;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
 }
 
-.third-section
-{
-    position: relative;
-    margin-top: -15vh;
-    height: 100vh;
-    width: 100vw;
-    z-index: 1;
+.third-section {
+  position: relative;
+  margin-top: -15vh;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
-.third-section::before
-{
-    content:'';
-    display: block;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    opacity: 0.5;
-    background-image: url('../image/skeleton-warrior.jpg');
-    background-size: cover;
-    z-index: -1;
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+.third-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  background-image: url("../image/skeleton-warrior.jpg");
+  background-size: cover;
+  z-index: -1;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 /* TeamPage */
 
-.main-section
-{
-    padding: 20px 0px;
-    margin-top: 100px;
+.main-section {
+  padding: 20px 0px;
+  margin-top: 100px;
 }
-.card{
-    width: 20rem;
-    height: 23rem;
-    border: 1px solid var(--main-color);
+.card {
+  width: 20rem;
+  height: 26rem;
 }
-.card-img
-{
-    width:100%;
-    min-height: 10rem;
-    max-height: 15rem;
-    height: auto;
-    padding: 5px;
-    opacity: 0.8;
+.card-img {
+  width: 100%;
+  min-height: 10rem;
+  max-height: 15rem;
+  height: auto;
+  padding: 5px;
+  opacity: 0.8;
+}
+
+.card-team {
+  margin-top: 10px;
 }
 
 /* ApplyPage */
-.form-control
-{
-    font-family: var(--main-font-family-roboto);
+.form-control {
+  font-family: var(--main-font-family-roboto);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .form-control:hover {
-    border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color);
 }
 
 .apply-submit {
-    width: 30%;
-    padding: 10px;
+  width: 30%;
+  padding: 10px;
 }
 /* Texte card */
-.secondary-title
-{
-    font-size: 4em;
+.secondary-title {
+  font-size: 4em;
 }
-.front-card
-{
-    max-width: 600px;
+.front-card {
+  max-width: 600px;
 }
 
-.btn-color
-{
-    background-color: var(--main-color);
-    color: #fff;
-    border-radius:  15px;
+.btn-color {
+  background-color: var(--main-color);
+  color: #fff;
+  border-radius: 15px;
 }
 
 /* ProjectPage */
 
-.bio-section
-{
-    margin-top: 10px;
+.bio-section {
+  margin-top: 10px;
 }
-.text-bio 
-{
-    line-height: 1.2;
+.text-bio {
+  line-height: 1.2;
 }
 
 /* NW-page */
 
-.mask
-{
-    background-color: rgb(18,18,18, 0.95);
+.mask {
+  background-color: rgb(18, 18, 18, 0.95);
 }
-.twitter-timeline
-{
-    color: #fff;
+.twitter-timeline {
+  color: #fff;
 }
 
-/* Media Queries */ 
+/* Profil page */
+#profil-picture {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.profil-card {
+  box-shadow: 1px 1px 5px var(--main-color);
+  margin: 15px;
+}
+
+.profil-pseudo {
+  font-size: 2em;
+}
+
+/* Modified profil page  */
+#alert-tips {
+  display: none;
+  color: crimson;
+  font-size: 0.8rem;
+}
+/* Media Queries */
 @media (max-width: 1400px) {
-    .motto{
-        font-size: 6em;
-    }
-    nav{
-        font-size: 3em;
-    }
+  .motto {
+    font-size: 6em;
+  }
+  nav {
+    font-size: 3em;
+  }
 }
 @media (max-width: 992px) {
-    p
-    {
-        padding: 0px 5px;
-    }
-    .motto{
-        font-size: 5em;
-    }
-    nav {
-        justify-content: space-between;
-    }
-    .open-button
-    {
-        margin: 0 auto;
-        margin-bottom: 10px;
-    }
-    .navbar-collapse
-    {
-        text-align: center;
-    }
-    .dropdown
-    {
-        text-align: center;
-    }
-    .form-container .btn
-    {
-        opacity: 1;
-    }
-    .card
-    {
-        margin: 0 auto;
-    }
-    .navbar-brand
-    {
-        font-size : 2em;
-    }
-    .twitter-asset
-    {
-        margin-left: 50px;
-    }
+  p {
+    padding: 0px 5px;
+  }
+  .motto {
+    font-size: 5em;
+  }
+  nav {
+    justify-content: space-between;
+  }
+  .open-button {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .dropdown {
+    text-align: center;
+  }
+  .form-container .btn {
+    opacity: 1;
+  }
+  .card {
+    margin: 0 auto;
+  }
+  .navbar-brand {
+    font-size: 2em;
+  }
+  .twitter-asset {
+    margin-left: 50px;
+  }
+  .btn-profil {
+    margin-left: 15px;
+  }
 }
