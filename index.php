@@ -97,9 +97,9 @@ try{
             }
             elseif($_GET['action'] == 'modifiedProfil')
             {
-                if(!empty($_POST['pseudo']) && !empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['signing']))
+                if(!empty($_POST['pseudo']) && !empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['signing']) && isset($_FILES['profil_picture']))
                 {
-                    modifyProfil($_POST['pseudo'], $_POST['name'], $_POST['age'], $_POST['signing'], $_SESSION['pseudo']);
+                    modifyProfil($_POST['pseudo'], $_POST['name'], $_POST['age'], $_POST['signing'], $_FILES['profil_picture'], $_SESSION['pseudo']);
                 }
                 else
                 {

@@ -20,7 +20,7 @@ ob_start();
             <input type="email" class="form-control" id="mail" name="mail" placeholder="nom@example.com">
         </div>
         <div class="form-group">
-            <label for="timeIG">Temps de jeu <em class="muted"> (Heure/jour) <em> </label>
+            <label for="timeIG">Temps de jeu (Heure/jour)</label>
             <select class="form-control" id="timeIG" name="IGtime">
             <option>1 - 2</option>
             <option>3 - 4</option>

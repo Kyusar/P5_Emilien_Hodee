@@ -10,10 +10,10 @@ ob_start();
                 <h1> Modifier mon profil </h1>
             </div>
         </div>
-        <form method="post" action="index.php?action=modifiedProfil">
+        <form enctype="multipart/form-data" method="post" action="index.php?action=modifiedProfil">
             <div class="row align-items-center profil-card">
                 <div class="col-lg-2">
-                    <img src="public/image/korosensei.png" alt="korosensei" id="profil-picture" class="rounded float-left" />
+                    <img src="public/image/upload/<?php echo($data['avatar']) ?>" alt="<?php echo($data['avatar']) ?>" id="profil-picture" class="rounded float-left" />
                 </div>
                 <div class="col form-group">
                     <div class="form-group">
@@ -21,10 +21,11 @@ ob_start();
                         <input type="text" class="form-control" id="pseudo" name="pseudo" onfocus="tooltip()" value="<?php echo($data['pseudo_front']) ?>" >
                         <span id="alert-tips">* Attention, changez votre pseudo ne changera pas votre identifiant  de connextion.</span>
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="picture" class="main-color">Nouvelle image</label> <br />
-                        <input type="file" id="picture" name="picture">
-                    </div> -->
+                    <div class="form-group">
+                        <label for="image" class="main-color">Image : </label> <br />
+                        <input type="file" id="image" name="profil_picture" accept="image/*,.png, image/*,.jpg, image/*,.jpeg">
+                        
+                    </div>
                 </div>
             </div>
             <div class="row align-items-center profil-card">
@@ -36,7 +37,7 @@ ob_start();
                     </div>
                     <div class="form-group">
                         <label for="age" class="secondary-font">Votre âge</label>
-                        <input type="number" class="form-control" id="age" name="age" value="<?php echo($data['age']) ?>">
+                        <input type="number" class="form-control" id="age" name="age" value="<?php echo($data['age']) ?>" max="99">
                     </div>
                 </div>
             </div>

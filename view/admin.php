@@ -31,7 +31,7 @@ ob_start();
                 </div>
                 <div class="form-group">
                     <label for="member">Rang</label>
-                    <select class="form-control" id="rank" name="rank">
+                    <select class="form-control" id="member" name="rank">
                         <option>owner</option>
                         <option>dev</option>
                         <option>roster</option>

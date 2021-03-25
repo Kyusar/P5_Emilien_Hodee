@@ -3,10 +3,9 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<script src="https://cdn.tiny.cloud/1/3klpreepms2aw95tlln6oab3q54lze6yxv0dzhop2m74wadg/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Redressed&display=swap" rel="stylesheet">
@@ -15,14 +14,13 @@
 	</head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg main-nav fixed-top justify-content-center align-items-center">
-                <a href="index.php" class="navbar-brand main-shade-color-bright"> <!-- <img src="public/image/ainz.png" alt="Personnage ainz" class="logo"/> --> <strong> Nazarick </strong> </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-expand-sm main-nav fixed-top justify-content-center align-items-center">
+                <a href="index.php" class="navbar-brand"> <img src="public/image/logo_nazarick.png"  alt="Logo Nazarick" class="brand"> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav m-auto"> 
-                        
                         
                         <?php
                             if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
@@ -44,6 +42,9 @@
                                     <li class="nav-item">
                                         <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
                                     </li>
+                                    <li class="nav-item">
+                                       <a href="#" class="nav-link  link-upgraded"> STREAMER </a>
+                                    </li> 
                                 <?php
                                 }
                             }
@@ -81,14 +82,17 @@
                             if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
                             {
                                 ?>
-                                    <div class="nav-item dropdown">
-                                        <a href="#" class="nav-link dropdown-toggle link-dropdown" id="navbarProfilLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="public/image/korosensei.png" alt="" class="profil"/></a>
+                                    <div class="nav-item dropdown second-menu">
+                                        <a href="#" class="nav-link dropdown-toggle link-dropdown" id="navbarProfilLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="public/image/upload/<?php echo($_SESSION['avatar']) ?>" alt="<?php echo($_SESSION['avatar']) ?>" class="profil"/>
+                                        </a>
                                         <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarProfilLink">
                                             <a href="index.php?action=profil" class="dropdown-item">Mon profil</a>
                                             <div class="dropdown-divider"></div>
 
                                             <a href="index.php" class="dropdown-item">Acceuil</a>
                                             <a href="index.php?action=team" class="dropdown-item">Team</a>
+                                            <a href="index.php?action=projet" class="dropdown-item">Projet</a>
                                             <a href="index.php?action=applyPage" class="dropdown-item">Postuler</a>
                                             <a href="index.php?action=contact" class="dropdown-item">Contact</a>
                                             <div class="dropdown-divider"></div>
@@ -97,10 +101,10 @@
                                             if($_SESSION['pseudo'] == 'Kyusar')
                                             {
                                                 ?>
-                                                <li class="nav-item">
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
-                                                </li>
+                                                
+                                                <div class="dropdown-divider"></div>
+                                                <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
+                                                
                                             <?php
                                             }
                                             ?>
@@ -128,7 +132,7 @@
                     <form method="post" action="index.php?action=connexion" class="form-container text-white">
                         <h2> Connexion : </h2>
                         <label for="pseudo"> Pseudo : </label>
-                        <input type="text" placeholder="Votre pseudo" name="pseudo" required>
+                        <input type="text" placeholder="Votre pseudo" name="pseudo" id="pseudo" required>
                         <label for="password"> Mot de passe : </label>
                         <input type="password" id="password" placeholder="Votre mot de passe" name="password" required>
                         <button type="submit" class="btn btn-submit"> Se connecter </button>
@@ -151,7 +155,6 @@
                         <a href="index.php?action=applyPage" class="nav-link"> Postuler </a>
                         <a href="index.php?action=newworld" class="nav-link"> New World </a>
                         <a href="index.php?action=contact" class="nav-link"> Contact </a>
-                        
                     </div>
                     <div class="col-6 align-self-start">
                         <h4 class="main-color"> <u>Reseaux sociaux</u> </h4>
@@ -162,9 +165,9 @@
             </div>
         </footer>
 
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        
+    
         <script src="public/js/popupConnexion.js"></script>
+        <script async src="https://platform.twitter.com/widgets.js"></script>
         <script src="https://kit.fontawesome.com/5b3feff120.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

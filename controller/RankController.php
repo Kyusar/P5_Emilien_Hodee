@@ -9,6 +9,8 @@ function member()
     $getMember = $rankManager->getMemberRank();
 
     require('view/teamPage.php');
+    
+    
 }
 
 function listMember()

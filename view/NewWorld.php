@@ -37,20 +37,16 @@ ob_start(); ?>
             </div>
             <div class="row text-center">
                 <div class="col">
-                    <h3 class="main-color"><strong> News / Dev </strong></h3>
+                    <h3 class="main-color"><strong> Dev News </strong></h3>
                 </div>
             </div>  
-            <div class="row text-center">
-                <div class="col container-glow">
-                    <h4 class="main-color "><strong> From Reddit </strong></h4>
-                    <p id="article"></p>
-                </div>
+            <div id="article">
             </div> 
         </div>
     </div>
 
     <script src="public/js/ajax.js"></script>
-    <script src="public/js/newworldfan.js"></script>
+    <script src="public/js/NWfan_api.js"></script>
     
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

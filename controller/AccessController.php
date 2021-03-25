@@ -6,8 +6,11 @@ function addingUser($pseudo, $pass1, $pass2)
 {
     $accessManager = new accessManager();
 
+    // Gathering data of already member to check if exist
     $getUser = $accessManager->verifyPseudo($pseudo);
     $name = $getUser->fetch();
+
+    $avatar = 'ainz.png';
     
     if($pass1 !== $pass2)
     {
@@ -19,11 +22,18 @@ function addingUser($pseudo, $pass1, $pass2)
     }
     else
     {
+        // Hashing the password and add the user
         $userPass = password_hash($pass1, PASSWORD_DEFAULT);
-        $addingUser = $accessManager->addUser($pseudo, $pseudo, $userPass);
+        $addingUser = $accessManager->addUser($pseudo, $pseudo, $userPass, $avatar);
+
+        // Getting id of the new user // Adding rank member to the new user
+        $getUserId = $accessManager->getUserId($pseudo);
+        $getId = $getUserId->fetch();
+        $addingRank = $accessManager->onUserAdd($getId['id']);
         
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['password'] = $userPass;
+        $_SESSION['avatar'] = $avatar;
 
         profilData($_SESSION['pseudo']);
     }
@@ -33,17 +43,25 @@ function verifyAccess($pseudo, $password)
 {
 
     $accessManager = new accessManager();
-    
+    $userManager = new userManager();
+
+    // Get data from user
     $access = $accessManager->accessAdminPanel($pseudo);
     $getAccess = $access->fetch();
 
+    // Verify if pseudo already exist
     $getUser = $accessManager->verifyPseudo($pseudo);
     $name = $getUser->fetch();
+
+    // get his profil picture to implement it in our template 
+    $getProfilPicture = $userManager->getUserImgData($pseudo);
+    $getImage = $getProfilPicture->fetch();
     
     if (password_verify($password, $getAccess['pass']) == TRUE)
     {
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['password'] = $password;
+        $_SESSION['avatar'] = $getImage['avatar'];
 
         profilData($_SESSION['pseudo']);
     }
@@ -53,7 +71,7 @@ function verifyAccess($pseudo, $password)
     }
     else
     {
-        throw new Exception("Pseudo ou Mot de passe érroné");
+        throw new Exception("Mot de passe érroné");
     }
     $access->closeCursor();
 }

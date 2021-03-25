@@ -12,18 +12,45 @@ ob_start();
         </div>
         <div class="row align-items-center profil-card">
             <div class="col-lg-2">
-                <img src="public/image/korosensei.png" alt="korosensei" id="profil-picture" class="rounded float-left" />
+                <img src="public/image/upload/<?php echo($data['avatar']) ?>" alt="<?php echo($data['avatar']) ?>" id="profil-picture" class="rounded float-left" />
             </div>
             <div class="col">
                 <h4 class="main-font main-color profil-pseudo"> <?php echo($data['pseudo_front']) ?></h4>
-                <p class="main-color"> Rank </p>
+                <p class="main-color"> 
+                    <?php
+                        if ($getRank['owner'] !== NULL)
+                        {
+                            echo('Rang : Owner');
+                        }
+                        elseif ($getRank['member'] !== NULL)
+                        {
+                            echo('Rang : Member');
+                        }
+                        elseif ($getRank['dev'] !== NULL)
+                        {
+                            echo('Rang : Dev');
+                        }
+                        elseif ($getRank['roster'] !== NULL)
+                        {
+                            echo('Rang : Roster');
+                        }
+                    ?>
+                </p>
             </div>
         </div>
         <div class="row align-items-center profil-card">
             <div class="col-8">
                 <h4  class="main-font main-color"> À propos </h4>
                 <p> <?php echo($data['name']) ?> </p>
-                <p> Age : <?php echo($data['age']) ?> ans</p>
+                <p>
+                    <?php 
+                        if (!empty($data['age']))
+                        {
+                            echo('Age : ' . $data['age'] . ' ans');
+                        } 
+                        
+                    ?>
+                </p>
             </div>
         </div>
         <div class="row align-items-center profil-card">

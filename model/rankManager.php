@@ -43,9 +43,17 @@ class rankManager extends Manager
     public function getMemberRank()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT u.pseudo_front, r.* FROM `user` AS u INNER JOIN rank_member AS r WHERE u.id = r.id_user  ORDER BY u.id ASC');
-        /* SELECT u.pseudo_front, r.* FROM `user` AS u INNER JOIN rank_member AS r WHERE u.id = r.id_user AND r.member = 0 OR r.owner = 0 OR r.dev = 0 OR r.roster = 0 */
-        // SELECT user.pseudo_front FROM user
+        $req = $db->query('SELECT u.pseudo_front, u.avatar, DATE_FORMAT(u.date_creation, \'%d/%m/%y\') AS creation, r.* FROM `user` AS u INNER JOIN rank_member AS r WHERE u.id = r.id_user');
+    
+        return $req;
+    }
+
+    public function getSpecificMemberRank($id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT * FROM rank_member WHERE id_user = ?');
+        $req->execute(array($id));
+
         return $req;
     }
 
