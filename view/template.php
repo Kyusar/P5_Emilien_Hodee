@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -14,8 +13,8 @@
 	</head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-expand-sm main-nav fixed-top justify-content-center align-items-center">
-                <a href="index.php" class="navbar-brand"> <img src="public/image/logo_nazarick.png"  alt="Logo Nazarick" class="brand"> </a>
+            <nav class="navbar navbar-expand-lg main-nav fixed-top">
+                <a href="index.php" class="navbar-brand main-font main-color"> <img src="public/image/logo_naz_alone.png"  alt="Logo Nazarick" class="brand"> <span class="link-upgraded">Nazarick</span> </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -52,7 +51,7 @@
                             {
                                 ?>
                                 <li class="nav-item">
-                                    <a href="index.php?action=team" class="nav-link link-upgraded"> TEAM </a>
+                                    <a href="index.php?action=team" class="nav-link link-upgraded"> MEMBRE </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="index.php?action=projet" class="nav-link link-upgraded"> PROJETS </a>
@@ -60,14 +59,8 @@
                                 <li class="nav-item">
                                     <a href="index.php?action=applyPage" class="nav-link  link-upgraded"> POSTULER </a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle link-dropdown" href="#" id="navbarMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                                        JEUX 
-                                    </a>
-                                    <div class="dropdown-menu dropdown-asset text-center" aria-labelledby="navbarMenuLink"> 
-                                        <a class="dropdown-item" href="index.php?action=newworld"> New World </a>
-                                        <a class="dropdown-item disabled" href="#"> League of Legends </a>
-                                    </div>
+                                <li class="nav-item">
+                                        <a class="nav-link link-upgraded" href="index.php?action=newworld"> NEW WORLD </a>
                                 </li>
                                 
                                 <li class="nav-item">
@@ -82,7 +75,7 @@
                             if (!empty($_SESSION['pseudo']) &&  !empty($_SESSION['password']))
                             {
                                 ?>
-                                    <div class="nav-item dropdown second-menu">
+                                    <div class="nav-item dropdown second-menu ml-auto">
                                         <a href="#" class="nav-link dropdown-toggle link-dropdown" id="navbarProfilLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="public/image/upload/<?php echo($_SESSION['avatar']) ?>" alt="<?php echo($_SESSION['avatar']) ?>" class="profil"/>
                                         </a>
@@ -103,7 +96,7 @@
                                                 ?>
                                                 
                                                 <div class="dropdown-divider"></div>
-                                                <a href="index.php?action=admin" class="nav-link  link-upgraded"> ADMIN </a>
+                                                <a href="index.php?action=admin" class="nav-link"> ADMIN </a>
                                                 
                                             <?php
                                             }
@@ -116,7 +109,7 @@
                             else
                             {
                                 ?>
-                                <div class="open-btn d-flex">
+                                <div class="open-btn ml-auto">
                                     <button type="button" class="btn open-button" onclick="openForm()"> Se connecter </button>   
                                 </div>
                                 <?php
@@ -125,7 +118,6 @@
 
                 </div>
             </nav> 
-        </header>
             <div class="login-popup">
                 <div class="form-popup" id="popupForm">
                 <!-- <a class="close">&times;</a> -->
@@ -141,23 +133,37 @@
                     </form>
                 </div>
             </div>
+        </header>
+            
 
 
         <?= $content ?>
 
         <footer>                    
             <div class="container-fluid section-footer">
-                <div class="row text-center align-items-center">
-                    <div class="col-6">
-                        <h4 class="main-color"> <u>Off-menu</u> </h4>
+                <div class="row text-center justify-content-around">
+                    <div class="col-2">
+                        <h4 class="main-color footer-title"> Off-menu </h4>
                         <a href="index.php?action=team" class="nav-link"> Team </a>
                         <a href="index.php?action=projet" class="nav-link"> Projets </a>
                         <a href="index.php?action=applyPage" class="nav-link"> Postuler </a>
                         <a href="index.php?action=newworld" class="nav-link"> New World </a>
                         <a href="index.php?action=contact" class="nav-link"> Contact </a>
                     </div>
-                    <div class="col-6 align-self-start">
-                        <h4 class="main-color"> <u>Reseaux sociaux</u> </h4>
+                    <?php
+                    if (!empty($_SESSION['pseudo']) && !empty($_SESSION['password']))
+                    {
+                        ?>
+                        <div class="col-2">
+                            <h4 class="main-color footer-title"> Gestion de compte </h4>
+                            <a href="index.php?action=profil" class="nav-link"> Mon profil </a>
+                            <a href="index.php?action=disconnect" class="nav-link"> Se deconnecter </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="col-2">
+                        <h4 class="main-color footer-title" id="SN"> Reseaux sociaux </h4>
                         <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter"></i></a> </p>
                         <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord"></i></a> </p>
                     </div>

@@ -11,6 +11,10 @@ function modifyProfil($pseudo, $name, $age, $signature, $file, $pseudo_session)
 
     $incoming_Image = $_FILES['profil_picture']['tmp_name'];
     $imgName = $_FILES['profil_picture']['name'];
+    if (empty($imgName))
+    {
+        $imgName = 'ainz.png';
+    }
 
     $updateProfil = $userManager->modifProfil($pseudo, $name, $age, $signature, $imgName, $pseudo_session);
 

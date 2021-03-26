@@ -27,7 +27,7 @@ ob_start(); ?>
                     <p class="text-bio text-left"> 
                         Retrouvez ci-dessous plusieurs site/outils fourni par la communauté : <br /><br />
                         
-                        <a href="https://newworldfans.com/" class="simple-link" target="_blank"> NewWorldFans</a> : Fournit une database du jeu ainsi que différents guide du jeu. <br /> <br />
+                        <a href="https://newworldfans.com/" class="simple-link" target="_blank"> NewWorldFans</a> : Fournit une database du jeu ainsi que différents guide sur le jeu. <br /> <br />
                         <a href="https://www.newworld-map.com/" class="simple-link" target="_blank">NewWorld-Map</a> : Fournit une carte intéractive avec une localisation de ressource.
                     </p>
                 </div>
