@@ -42,7 +42,7 @@ ob_start();
         <div class="row justify-content-center text-center">
             <div class="col-6 container-glow">
                 <p class="text-bio"> <span class="main-font">Nazarick</span> comporte des une pléïade de membres en tout genre, découvrez tout les membres qui nous composent. Parmi ces murs ou sur nos <a href="#SN" class='simple-link'>réseaux sociaux</a></p>
-                <a href="index.php?acction=teamPage"><button type="button" class="btn btn-color"> En savoir-plus </button></a>
+                <a href="index.php?action=team"><button type="button" class="btn btn-color"> En savoir-plus </button></a>
             </div>
         </div>
 

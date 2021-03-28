@@ -164,8 +164,8 @@
                     ?>
                     <div class="col-2">
                         <h4 class="main-color footer-title" id="SN"> Reseaux sociaux </h4>
-                        <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter"></i></a> </p>
-                        <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord"></i></a> </p>
+                        <p> <a href="https://twitter.com/KyusarTv" target="_blank"><i class="fab fa-twitter rotation"></i></a> </p>
+                        <p> <a href="https://discord.gg/rYK336Q" target="_blank"><i class="fab fa-discord rotation"></i></a> </p>
                     </div>
                 </div>
             </div>

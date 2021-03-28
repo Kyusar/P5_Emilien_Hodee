@@ -17,9 +17,9 @@ ob_start();
                 ?>
                 <div class="col-4-md col-6-xs text-center card-team">
                     <div class="card text-white main-bg-color mb-2 container-glow ">
-                        <img src="public/image/upload/<?php echo($data['avatar']) ?>" alt="Ainz" class="card-img-top card-img">
+                        <img src="public/image/upload/<?php echo($data['avatar']) ?>" alt="Ainz" class="card-img-top card-img rotation">
                         <div class="card-body">
-                            <h4 class="card-title"> <?= htmlspecialchars($data['pseudo_front'])?> </h4>
+                            <h4 class="card-title main-color"> <?= htmlspecialchars($data['pseudo_front'])?> </h4>
                             <p class="card-text"> 
                             <?php
                                 if($data['owner'] !== NULL)

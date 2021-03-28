@@ -29,7 +29,7 @@ request.onreadystatechange = function () {
     do {
       var category = response.dev_posts[i].category;
       console.log(category);
-      if (category == "Actualité des développeurs") {
+      if (category == "Actualité des développeurs" || category == "Général") {
         var rowElement = document.createElement("div");
         rowElement.className = "row justify-content-center";
 
@@ -75,9 +75,13 @@ request.onreadystatechange = function () {
 
         var dateElement = document.createElement("p");
         dateElement.className = "muted text-right";
-        dateElement.textContent = new Date(
-          response.dev_posts[i].posted_at
-        ).toUTCString();
+        dateElement.textContent =
+          "Le " +
+          new Date(response.dev_posts[i].posted_at).getUTCDate() +
+          " / " +
+          (new Date(response.dev_posts[i].posted_at).getUTCMonth() + 1) +
+          " / " +
+          new Date(response.dev_posts[i].posted_at).getUTCFullYear();
 
         articles.appendChild(rowElement);
         rowElement.appendChild(colElement);
@@ -100,15 +104,6 @@ request.onreadystatechange = function () {
 };
 request.open("GET", "http://localhost/p5_emilien_hodee/public/js/nw.json");
 request.send();
-// https://newworldfans.com/api/v1/dev_tracker?page=1&source=reddit
 
-/* // Création d'une requête HTTP
-var req = new XMLHttpRequest();
-// Requête HTTP GET synchrone vers le fichier langages.txt publié localement
-req.open("GET", "https://newworldfans.com/api/v1/dev_tracker", false);
-// Envoi de la requête
-req.send(null); */
-/* curl http://localhost
->> GET 'https://api.twitch.tv/helix/search/channels?query=a_seagull' \
->> --header 'client-id: lo92uecvzvihoi81c54z8wkdfjv1dx' \
->> --header 'Authorization: Bearer xn20rxi6g6iu9njew4fe0h9oraxh0p' */
+// https://newworldfans.com/api/v1/dev_tracker?page=1&source=reddit   remote acces
+// http://localhost/p5_emilien_hodee/public/js/nw.json local access

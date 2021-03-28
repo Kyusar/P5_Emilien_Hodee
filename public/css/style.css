@@ -51,10 +51,40 @@ h4 {
   font-family: var(--main-font-family-roboto);
 }
 
-.container-glow {
-  box-shadow: 1px 1px 5px var(--main-color);
-  padding: 20px;
+@keyframes pulseContent {
+  0% {
+    opacity: 0.3;
+    box-shadow: 0px 2px 5px var(--main-color);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 2px 10px var(--main-color);
+  }
 }
+
+.container-glow {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+  transition: transform 1s ease;
+}
+
+.container-glow:hover {
+  transform: translateY(-0.35em) scale(1.02);
+}
+
+.container-glow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulseContent 5s infinite alternate-reverse;
+}
+
 .simple-link {
   color: var(--main-color);
   text-decoration: underline;
@@ -77,9 +107,30 @@ h4 {
 
 .main-nav {
   font-size: 1em;
+  position: fixed;
   color: #fff;
   background: var(--main-bg-color);
+}
+
+@keyframes pulseNav {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.main-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   box-shadow: 0px 5px 10px var(--main-color);
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulseNav 5s infinite ease-in-out alternate-reverse;
 }
 
 .link-dropdown {
@@ -310,6 +361,9 @@ h4 {
   margin-top: 10px;
 }
 
+.card-title {
+  font-weight: bold;
+}
 /* ApplyPage */
 .form-control {
   font-family: var(--main-font-family-roboto);
@@ -327,6 +381,15 @@ h4 {
 /* Texte card */
 .secondary-title {
   font-size: 4em;
+  border-radius: 50%;
+}
+
+.rotation {
+  transition: transform 1s ease;
+}
+
+.rotation:hover {
+  transform: rotateY(360deg);
 }
 
 .btn-color {
@@ -367,8 +430,21 @@ h4 {
 }
 
 .profil-card {
-  box-shadow: 1px 1px 5px var(--main-color);
+  position: relative;
   margin: 15px;
+  z-index: 1;
+}
+
+.profil-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 1px 1px 5px var(--main-color);
+  z-index: -1;
+  animation: pulseContent 3s infinite alternate-reverse;
 }
 
 .profil-pseudo {
