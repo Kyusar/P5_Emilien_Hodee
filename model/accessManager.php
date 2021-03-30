@@ -5,13 +5,13 @@ require_once("Manager.php");
 class accessManager extends Manager 
 {
 
-    public function addUser($pseudo, $pseudo_front, $pass,  $basic_avatar)
+    public function addUser($pseudo, $pseudo_front, $pass, $avatar)
     {
         $db = $this->dbConnect();
-        $req =  $db->prepare('INSERT INTO user(pseudo, pseudo_front, pass, avatar, date_creation) VALUES (?,?,?,?, NOW())');
-        $newUser = $req->execute(array($pseudo, $pseudo_front, $pass, $basic_avatar));
+        $req = $db->prepare('INSERT INTO user(pseudo, pseudo_front, pass, avatar, date_creation) VALUES (?, ?, ?, ?, NOW())');
+        $newUser = $req->execute(array($pseudo, $pseudo_front, $pass, $avatar));
 
-        return  $newUser;
+        return $newUser;
     }
 
     public function onUserAdd($id)

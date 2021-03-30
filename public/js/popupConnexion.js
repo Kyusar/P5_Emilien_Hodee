@@ -3,7 +3,6 @@
 function openForm() {
   document.getElementById("popupForm").style.display = "block";
   var divs = document.querySelectorAll("body > div:not(.popupForm)");
-  document.getElementsByTagName("divs").style.opacity = "0.5";
 }
 
 function closeForm() {

@@ -10,6 +10,7 @@ function addingUser($pseudo, $pass1, $pass2)
     $getUser = $accessManager->verifyPseudo($pseudo);
     $name = $getUser->fetch();
 
+    $pseudo_front = $pseudo;
     $avatar = 'ainz.png';
     
     if($pass1 !== $pass2)
@@ -22,20 +23,26 @@ function addingUser($pseudo, $pass1, $pass2)
     }
     else
     {
+        // $2y$10$rsF8I7WnNlQFgxU/5UVjT.2HtlKguVXvXHlsPaxOpZp8tr08.Sl9e
+
         // Hashing the password and add the user
         $userPass = password_hash($pass1, PASSWORD_DEFAULT);
-        $addingUser = $accessManager->addUser($pseudo, $pseudo, $userPass, $avatar);
-
+        $addingUser = $accessManager->addUser($pseudo, $pseudo_front, $userPass, $avatar);
+        
         // Getting id of the new user // Adding rank member to the new user
         $getUserId = $accessManager->getUserId($pseudo);
         $getId = $getUserId->fetch();
         $addingRank = $accessManager->onUserAdd($getId['id']);
         
+        //Start session
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['password'] = $userPass;
         $_SESSION['avatar'] = $avatar;
 
         profilData($_SESSION['pseudo']);
+        
+        
+        
     }
 }
 

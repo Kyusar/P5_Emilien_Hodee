@@ -51,9 +51,9 @@ try{
         /* Create account / verification */
         elseif($_GET['action'] == 'addNewUser')
         {
-            if(!empty($_POST['pseudo']) && !empty($_POST['pass1']) && !empty($_POST['pass2']))
+            if(!empty($_POST['pseudo2']) && !empty($_POST['pass1']) && !empty($_POST['pass2']))
             {
-                addingUser($_POST['pseudo'], $_POST['pass1'], $_POST['pass2']);
+                addingUser($_POST['pseudo2'], $_POST['pass1'], $_POST['pass2']);
             }
             else
             {

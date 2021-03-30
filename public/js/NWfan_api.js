@@ -102,8 +102,13 @@ request.onreadystatechange = function () {
     } while (i < 20);
   }
 };
-request.open("GET", "http://localhost/p5_emilien_hodee/public/js/nw.json");
+request.open(
+  "GET",
+  "http://cors-anywhere.herokuapp.com/https://newworldfans.com/api/v1/dev_tracker?page=1&source=reddit"
+);
+request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 request.send();
 
 // https://newworldfans.com/api/v1/dev_tracker?page=1&source=reddit   remote acces
 // http://localhost/p5_emilien_hodee/public/js/nw.json local access
+// http://cors-anywhere.herokuapp.com/newworldfans.com/api/v1/dev_tracker?page=1&source=reddit
